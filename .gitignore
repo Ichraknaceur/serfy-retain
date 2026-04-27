@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.streamlit/
+.venv/
+venv/
+dist/
+build/
+htmlcov/
+.coverage
+data/chroma_db/
