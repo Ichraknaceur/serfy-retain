@@ -1,29 +1,29 @@
 # Technical Architecture
 
-## Principe
+## Principle
 
-L'architecture conserve la stack existante, mais avec une separation plus nette entre:
+The architecture keeps the existing stack, but with a clearer separation between:
 
 - application,
-- modeles,
-- suivi d'experimentation,
+- models,
+- experiment tracking,
 - monitoring,
-- automatisation.
+- automation.
 
-## Stack retenue
+## Selected Stack
 
-- `FastAPI` pour l'API metier
-- `Streamlit` pour la demonstration et les usages metier simples
-- `pandas` / `numpy` pour la preparation des donnees
-- `scikit-learn` / `LightGBM` pour le modele churn
-- `MLflow` pour le tracking
-- `DagsHub` pour la centralisation du suivi
-- `Docker` / `docker-compose` pour l'execution locale
-- `Jenkins` pour l'automatisation CI/CD
-- `Evidently` pour le monitoring data/model
-- `pytest` pour les tests
+- `FastAPI` for the business API
+- `Streamlit` for demos and simple business-facing usage
+- `pandas` / `numpy` for data preparation
+- `scikit-learn` / `LightGBM` for the churn model
+- `MLflow` for experiment tracking
+- `DagsHub` for centralized tracking and collaboration
+- `Docker` / `docker-compose` for local execution
+- `Jenkins` for CI/CD automation
+- `Evidently` for data and model monitoring
+- `pytest` for testing
 
-## Architecture logique
+## Logical Architecture
 
 ```text
 Streamlit UI
@@ -52,7 +52,7 @@ Automation
     +--> Jenkins pipeline
 ```
 
-## Structure cible du backend
+## Target Backend Structure
 
 ```text
 backend/app/
@@ -66,7 +66,7 @@ backend/app/
 └── main.py
 ```
 
-## Structure cible data/ML
+## Target Data/ML Structure
 
 ```text
 data/
@@ -81,20 +81,20 @@ training/
 └── evaluate.py
 ```
 
-## Decisions de conception
+## Design Decisions
 
 ### Decision 1
 
-Le frontend reste en `Streamlit` pour accelerer la livraison du MVP.
+The frontend stays on `Streamlit` to accelerate MVP delivery.
 
 ### Decision 2
 
-Le backend garde `FastAPI` pour isoler les services prediction/recommandation et faciliter les tests.
+The backend keeps `FastAPI` to isolate prediction and recommendation services and make testing easier.
 
 ### Decision 3
 
-Le suivi d'experimentation passe systematiquement par `MLflow` et `DagsHub` pour eviter de repartir en logique notebook-only.
+Experiment tracking goes systematically through `MLflow` and `DagsHub` to avoid falling back into a notebook-only workflow.
 
 ### Decision 4
 
-La couche IA reste optionnelle au depart pour ne pas retarder la valeur metier du MVP.
+The AI layer remains optional at the start so it does not delay the MVP's business value.

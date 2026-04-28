@@ -1,42 +1,42 @@
 # Serfy Retain
 
-Serfy Retain est un produit de prevention du churn bancaire.
-L'idee est de construire une plateforme claire, modulaire et evolutive qui combine:
+Serfy Retain is a bank churn prevention product.
+The goal is to build a clear, modular, and scalable platform that combines:
 
-- prediction du risque de churn,
-- recommandations d'offres de retention,
-- personnalisation assistee par IA,
-- monitoring produit et data.
+- churn risk prediction,
+- retention offer recommendations,
+- AI-assisted personalization,
+- product and data monitoring.
 
-## Pourquoi ce nouveau projet
+## Why This New Project
 
-Les anciens dossiers contiennent de bonnes briques, mais aussi des melanges d'iterations, de chemins, de tests et de CI/CD qui rendent l'evolution plus fragile.
-Ce nouveau dossier sert de base propre pour repartir avec:
+The previous folders contain strong building blocks, but also a mix of iterations, paths, tests, and CI/CD logic that makes the project harder to evolve safely.
+This new repository is meant to provide a clean foundation with:
 
-- une architecture lisible,
-- des conventions simples,
-- un point d'entree backend clair,
-- une UI frontend legere,
-- un espace reserve au monitoring et aux donnees.
+- a readable architecture,
+- simple conventions,
+- a clear backend entry point,
+- a lightweight frontend UI,
+- dedicated space for monitoring and data.
 
-## Documentation Sprint 0
+## Sprint 0 Documentation
 
-Les documents de cadrage de depart sont dans `docs/`:
+The initial framing documents are available in `docs/`:
 
 - [Sprint 0](docs/SPRINT_0.md)
 - [Product Brief](docs/product-brief.md)
 - [MVP Scope](docs/mvp-scope.md)
 - [Technical Architecture](docs/technical-architecture.md)
 
-## Positionnement produit
+## Product Positioning
 
-Nom du produit: `Serfy Retain`
+Product name: `Serfy Retain`
 
 Tagline:
 `The retention intelligence layer for retail banking.`
 
-Promesse:
-`Identifier les clients a risque, recommander la bonne action, et industrialiser la retention.`
+Promise:
+`Identify at-risk customers, recommend the right action, and industrialize retention workflows.`
 
 ## Structure
 
@@ -64,7 +64,7 @@ serfy-retain/
 └── docker-compose.yml
 ```
 
-## Lancement local
+## Local Run
 
 ### Backend
 
@@ -82,7 +82,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Lancement Docker
+## Docker Run
 
 ```bash
 cd serfy-retain
@@ -98,10 +98,10 @@ cd ..
 pytest tests -q
 ```
 
-## Prochaines etapes conseillees
+## Recommended Next Steps
 
-1. Ajouter le schema des donnees clients.
-2. Brancher le modele churn avec un module `services/prediction.py`.
-3. Ajouter un module `services/recommendation.py` pour les offres.
-4. Ajouter un agent conversationnel dans un module isole.
-5. Ecrire des tests backend avant d'etendre les routes.
+1. Add the customer data schema.
+2. Connect the churn model through a `services/prediction.py` module.
+3. Add a `services/recommendation.py` module for offers.
+4. Add a conversational agent in an isolated module.
+5. Write backend tests before extending the routes.

@@ -1,11 +1,11 @@
 # Monitoring
 
-Ce dossier accueillera les briques de monitoring du produit:
+This folder will host the product monitoring components:
 
 - data drift,
 - prediction drift,
-- suivi des campagnes de retention,
-- dashboards de conversion des offres,
-- alertes de qualite de service.
+- retention campaign tracking,
+- offer conversion dashboards,
+- service quality alerts.
 
-L'idee est de garder ce module separe du backend applicatif pour conserver une architecture propre.
+The goal is to keep this module separate from the application backend so the architecture stays clean.

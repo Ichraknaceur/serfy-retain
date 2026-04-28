@@ -1,53 +1,53 @@
 # MVP Scope
 
-## Inclus dans le MVP
+## Included in the MVP
 
-- preprocessing churn propre,
-- entrainement d'un modele `LightGBM`,
-- tracking via `MLflow`,
-- usage de `DagsHub` pour centraliser le suivi,
-- API `FastAPI` avec `health`, `predict` et `model-info`,
-- interface `Streamlit` pour tester un client,
-- recommandations d'offres basees sur des regles metier,
-- execution locale via `Docker Compose`,
-- pipeline `Jenkins` de base,
-- rapports `Evidently` de monitoring initial,
-- tests critiques avec `pytest`.
+- clean churn preprocessing,
+- training of a `LightGBM` model,
+- tracking through `MLflow`,
+- use of `DagsHub` to centralize experiment tracking,
+- `FastAPI` API with `health`, `predict`, and `model-info`,
+- `Streamlit` interface to test a customer,
+- offer recommendations based on business rules,
+- local execution with `Docker Compose`,
+- a baseline `Jenkins` pipeline,
+- initial monitoring reports with `Evidently`,
+- critical tests with `pytest`.
 
-## Exclu du MVP
+## Excluded from the MVP
 
-- agent conversationnel complet,
-- boucle de feedback humain riche,
-- moteur RAG obligatoire,
-- personnalisation IA avancee,
-- authentification/autorisation complete,
-- portail multi-equipe.
+- full conversational agent,
+- rich human feedback loop,
+- mandatory RAG engine,
+- advanced AI personalization,
+- full authentication and authorization,
+- multi-team portal.
 
-## Capacites MVP attendues
+## Expected MVP Capabilities
 
-### Cote data science
+### Data Science Side
 
-- charger les donnees churn,
-- preparer les features,
-- entrainer un modele,
-- comparer les runs,
-- enregistrer les artefacts.
+- load churn data,
+- prepare features,
+- train a model,
+- compare runs,
+- store artifacts.
 
-### Cote applicatif
+### Application Side
 
-- verifier l'etat du backend,
-- scorer un client,
-- afficher la prediction,
-- exposer la version du modele,
-- recommander des offres.
+- check backend status,
+- score a customer,
+- display the prediction,
+- expose the model version,
+- recommend offers.
 
-### Cote MLOps
+### MLOps Side
 
-- reproduire l'entrainement,
-- suivre les metriques,
-- monitorer les donnees/reference,
-- lancer l'application localement facilement.
+- reproduce training,
+- track metrics,
+- monitor reference and current data,
+- launch the application locally with minimal friction.
 
-## Critere de reussite MVP
+## MVP Success Criterion
 
-Un utilisateur doit pouvoir lancer le projet, tester un client, obtenir un score churn, voir une recommandation de retention et identifier quel modele a produit la decision.
+A user must be able to launch the project, test a customer, obtain a churn score, see a retention recommendation, and identify which model produced the decision.

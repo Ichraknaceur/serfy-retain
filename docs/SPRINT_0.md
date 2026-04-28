@@ -1,20 +1,20 @@
-# Sprint 0 - Cadrage et fondation
+# Sprint 0 - Framing and Foundation
 
-## Objectif
+## Objective
 
-Le Sprint 0 sert a figer le cadre produit et technique de `Serfy Retain` avant de lancer le developpement fonctionnel.
+Sprint 0 is used to lock the product and technical framing of `Serfy Retain` before starting functional development.
 
-L'objectif est de repartir proprement avec:
+The goal is to restart on a clean basis with:
 
-- une vision produit claire,
-- un MVP limite et realiste,
-- une architecture cible stable,
-- un backlog de depart exploitable,
-- une stack technique figee.
+- a clear product vision,
+- a focused and realistic MVP,
+- a stable target architecture,
+- an actionable starting backlog,
+- a fixed technical stack.
 
-## Decision principale
+## Main Decision
 
-La stack technique est conservee a l'identique:
+The technical stack is kept exactly as is:
 
 - `Python`
 - `FastAPI`
@@ -30,58 +30,58 @@ La stack technique est conservee a l'identique:
 - `Jenkins`
 - `Evidently`
 - `pytest`
-- optionnel ensuite: `OpenAI` ou `OpenRouter` + `ChromaDB`
+- optional later: `OpenAI` or `OpenRouter` + `ChromaDB`
 
-## Livrables Sprint 0
+## Sprint 0 Deliverables
 
-1. Positionnement produit et proposition de valeur.
-2. Definition des personas et du cas d'usage principal.
-3. Perimetre MVP avec ce qui est inclus et exclu.
-4. Architecture applicative et MLOps de reference.
-5. Structure initiale du projet `serfy-retain`.
-6. Plan de passage vers le Sprint 1.
+1. Product positioning and value proposition.
+2. Definition of personas and the main use case.
+3. MVP scope with what is included and excluded.
+4. Reference application and MLOps architecture.
+5. Initial `serfy-retain` project structure.
+6. Transition plan into Sprint 1.
 
-## Personas cibles
+## Target Personas
 
-- `Conseiller bancaire`
-  Utilise l'outil pour identifier rapidement les clients a risque et choisir la meilleure action de retention.
+- `Bank advisor`
+  Uses the tool to quickly identify at-risk customers and choose the best retention action.
 
-- `Responsable retention / CRM`
-  Suit les segments a risque et les recommandations d'offres pour piloter les campagnes.
+- `Retention / CRM manager`
+  Tracks at-risk segments and offer recommendations to steer campaigns.
 
 - `Data scientist / ML engineer`
-  Entraine, suit, versionne et monitore le modele churn.
+  Trains, tracks, versions, and monitors the churn model.
 
-## Cas d'usage principal MVP
+## Main MVP Use Case
 
-1. Un utilisateur selectionne ou saisit le profil d'un client.
-2. L'application calcule un score de churn.
-3. Le backend classe le client en niveau de risque.
-4. Le systeme propose 1 a 3 offres de retention adaptees.
-5. L'utilisateur visualise le resultat dans une interface simple.
+1. A user selects or enters a customer profile.
+2. The application computes a churn score.
+3. The backend classifies the customer into a risk level.
+4. The system proposes 1 to 3 relevant retention offers.
+5. The user views the result in a simple interface.
 
-## Hors perimetre MVP
+## Out of MVP Scope
 
-- assistant conversationnel complet,
-- personnalisation avancée d'emails,
-- RAG/ChromaDB obligatoire,
-- orchestration cloud complexe,
-- authentification multi-role complete.
+- full conversational assistant,
+- advanced email personalization,
+- mandatory RAG/ChromaDB,
+- complex cloud orchestration,
+- full multi-role authentication.
 
-## Definition of Done du Sprint 0
+## Sprint 0 Definition of Done
 
-Le Sprint 0 est considere comme termine si:
+Sprint 0 is considered complete if:
 
-- le produit a un nom, une promesse et un cadre clairs,
-- la stack est verrouillee,
-- le MVP est defini,
-- l'architecture cible est documentee,
-- le prochain sprint peut commencer sans ambiguite.
+- the product has a clear name, promise, and framing,
+- the stack is locked,
+- the MVP is defined,
+- the target architecture is documented,
+- the next sprint can start without ambiguity.
 
-## Passage au Sprint 1
+## Transition to Sprint 1
 
-Le Sprint 1 demarre avec 3 objectifs:
+Sprint 1 starts with 3 goals:
 
-1. fiabiliser les donnees churn,
-2. reconstruire un pipeline d'entrainement propre,
-3. tracer les experimentations via `MLflow` et `DagsHub`.
+1. make churn data reliable,
+2. rebuild a clean training pipeline,
+3. track experiments with `MLflow` and `DagsHub`.

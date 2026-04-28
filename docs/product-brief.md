@@ -1,6 +1,6 @@
 # Product Brief - Serfy Retain
 
-## Nom produit
+## Product Name
 
 `Serfy Retain`
 
@@ -8,46 +8,46 @@
 
 `The retention intelligence layer for retail banking.`
 
-## Probleme
+## Problem
 
-Les banques disposent de donnees clients et de modeles churn, mais ont souvent du mal a transformer ces signaux en actions de retention simples, traçables et industrialisables.
+Banks have access to customer data and churn models, but they often struggle to turn those signals into simple, traceable, and scalable retention actions.
 
-Le besoin n'est pas seulement de predire le churn.
-Le besoin est de relier:
+The need is not only to predict churn.
+The real need is to connect:
 
-- la detection du risque,
-- la recommandation d'action,
-- la supervision du modele,
-- et l'usage metier.
+- risk detection,
+- action recommendation,
+- model supervision,
+- and business usage.
 
-## Proposition de valeur
+## Value Proposition
 
-`Serfy Retain` aide une banque a identifier les clients a risque de churn, recommander des actions de retention pertinentes et suivre la qualite de la decision dans le temps.
+`Serfy Retain` helps a bank identify customers at risk of churn, recommend relevant retention actions, and track decision quality over time.
 
-## Utilisateur principal
+## Primary User
 
-Le premier utilisateur cible est le `conseiller bancaire` ou l'equipe `retention/CRM`.
+The primary target user is the `bank advisor` or the `retention/CRM` team.
 
-## Flux metier principal
+## Main Business Flow
 
-1. Charger ou saisir un client.
-2. Evaluer son risque de churn.
-3. Afficher un niveau de risque interpretable.
-4. Proposer des actions de retention simples.
-5. Donner une base pour suivre les performances du dispositif.
+1. Load or enter a customer.
+2. Assess churn risk.
+3. Display an interpretable risk level.
+4. Propose simple retention actions.
+5. Provide a foundation for monitoring system performance.
 
-## Valeur MVP
+## MVP Value
 
-Le MVP doit prouver 3 choses:
+The MVP must prove 3 things:
 
-- le scoring churn est exploitable,
-- les recommandations d'offres sont lisibles,
-- le socle MLOps est propre et demonstrable.
+- churn scoring is usable,
+- offer recommendations are clear,
+- the MLOps foundation is clean and demonstrable.
 
-## Indicateurs de succes
+## Success Metrics
 
-- temps de demonstration court,
-- prediction reproductible,
-- artefacts modele traces,
-- UI simple et lisible,
-- monitoring initial disponible.
+- short demo time,
+- reproducible prediction,
+- tracked model artifacts,
+- simple and readable UI,
+- initial monitoring available.
