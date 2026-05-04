@@ -11,3 +11,10 @@ build/
 htmlcov/
 .coverage
 data/chroma_db/
+mlruns/
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/artifacts/*
+!data/artifacts/.gitkeep

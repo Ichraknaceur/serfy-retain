@@ -8,6 +8,13 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    volumes:
+      - ./backend/app:/app/app
+      - ./backend/requirements-dev.txt:/app/requirements-dev.txt
+      - ./training:/app/training
+      - ./data:/app/data
+      - ./tests:/app/tests
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
     restart: unless-stopped
 
   frontend:
@@ -20,6 +27,35 @@ services:
     environment:
       API_URL: http://backend:8000
       PRODUCT_NAME: Serfy Retain
+    volumes:
+      - ./frontend/app.py:/app/app.py
     depends_on:
       - backend
     restart: unless-stopped
+
+  ml:
+    build:
+      context: .
+      dockerfile: training/Dockerfile
+    container_name: serfy-retain-ml
+    env_file:
+      - .env
+    volumes:
+      - ./training:/app/training
+      - ./data:/app/data
+      - ./mlruns:/app/mlruns
+    profiles:
+      - tools
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: training/Dockerfile
+    container_name: serfy-retain-mlflow
+    command: ["mlflow", "ui", "--host", "0.0.0.0", "--backend-store-uri", "/app/mlruns", "--port", "5001"]
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./mlruns:/app/mlruns
+    profiles:
+      - tools

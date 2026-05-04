@@ -31,15 +31,17 @@ Streamlit UI
     v
 FastAPI Backend
     |
-    +--> Prediction service
-    +--> Recommendation service
-    +--> Model loader
+    +--> Model artifacts service
+    +--> Prediction route
+    +--> Model info route
     |
-    +--> Model artifacts
-    +--> Preprocessor artifacts
+    +--> Local artifacts in data/artifacts/
 
 Training pipeline
     |
+    +--> preprocessing
+    +--> LightGBM training
+    +--> local artifact persistence
     +--> MLflow tracking
     +--> DagsHub remote tracking
 
@@ -52,21 +54,25 @@ Automation
     +--> Jenkins pipeline
 ```
 
-## Target Backend Structure
+## Backend Structure
 
 ```text
 backend/app/
 ├── api/routes/
+│   ├── health.py
+│   ├── meta.py
+│   ├── model.py
+│   └── predict.py
 ├── core/
+│   └── config.py
 ├── schemas/
+│   └── prediction.py
 ├── services/
-│   ├── prediction.py
-│   ├── recommendation.py
-│   └── model_registry.py
+│   └── model_loader.py
 └── main.py
 ```
 
-## Target Data/ML Structure
+## Data and Training Structure
 
 ```text
 data/
@@ -76,10 +82,23 @@ data/
 └── artifacts/
 
 training/
+├── config.py
+├── data_contract.py
+├── evaluate.py
 ├── preprocess.py
 ├── train.py
-└── evaluate.py
+└── Dockerfile
 ```
+
+## Artifact Flow
+
+The current artifact flow is:
+
+1. the dataset is loaded from `data/raw/churn.csv`
+2. preprocessing builds the training-ready dataset
+3. training fits the pipeline and logs the run to MLflow
+4. local artifacts are written to `data/artifacts/`
+5. the FastAPI backend reloads those artifacts for inference
 
 ## Design Decisions
 
@@ -89,7 +108,7 @@ The frontend stays on `Streamlit` to accelerate MVP delivery.
 
 ### Decision 2
 
-The backend keeps `FastAPI` to isolate prediction and recommendation services and make testing easier.
+The backend keeps `FastAPI` to isolate prediction services and make testing easier.
 
 ### Decision 3
 
@@ -97,4 +116,8 @@ Experiment tracking goes systematically through `MLflow` and `DagsHub` to avoid 
 
 ### Decision 4
 
-The AI layer remains optional at the start so it does not delay the MVP's business value.
+The project is Docker-first so local machine setup stays minimal.
+
+### Decision 5
+
+The backend serves inference from persisted artifacts instead of retraining at runtime.
