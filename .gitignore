@@ -18,3 +18,4 @@ data/processed/*
 !data/processed/.gitkeep
 data/artifacts/*
 !data/artifacts/.gitkeep
+monitoring/reports/*.html
