@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help build up down logs run-backend run-frontend preprocess-data train-model test mlflow-ui shell-ml
+.PHONY: help build up down logs run-backend run-frontend preprocess-data train-model test mlflow-ui shell-ml run-monitoring
 
 help: ## Show available project commands
 	@echo ""
@@ -43,3 +43,8 @@ mlflow-ui: ## Start the local MLflow UI on port 5001
 
 shell-ml: ## Open a shell inside the ML container
 	docker compose run --rm ml sh
+
+run-monitoring: ## Generate Evidently reports and serve them on http://localhost:8080
+	docker compose build monitoring
+	docker compose run --rm monitoring
+	docker compose up -d monitoring-ui

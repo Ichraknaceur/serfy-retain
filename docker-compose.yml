@@ -27,6 +27,7 @@ services:
     environment:
       API_URL: http://backend:8000
       PRODUCT_NAME: Serfy Retain
+      MONITORING_URL: http://localhost:8080
     volumes:
       - ./frontend/app.py:/app/app.py
     depends_on:
@@ -57,5 +58,26 @@ services:
       - "5001:5001"
     volumes:
       - ./mlruns:/app/mlruns
+    profiles:
+      - tools
+
+  monitoring:
+    build:
+      context: .
+      dockerfile: monitoring/Dockerfile
+    container_name: serfy-retain-monitoring
+    volumes:
+      - ./data:/app/data
+      - ./monitoring/reports:/app/monitoring/reports
+    profiles:
+      - tools
+
+  monitoring-ui:
+    image: nginx:alpine
+    container_name: serfy-retain-monitoring-ui
+    ports:
+      - "8080:80"
+    volumes:
+      - ./monitoring/reports:/usr/share/nginx/html:ro
     profiles:
       - tools
